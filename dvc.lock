@@ -82,3 +82,79 @@ stages:
       md5: 13e48eda311cce0452ab2aef1b7cef61.dir
       size: 422374015
       nfiles: 6
+  eval@bonsai:
+    cmd:
+    - venv/bin/annif eval kauno-bonsai-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-bonsai-fi.json
+      corpora/kirjasampo/kirjasampo-kauno-test.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
+      md5: 939cd63cada2e7b393412269e8880fe6
+      size: 1529683
+    - path: data/projects/kauno-bonsai-fi
+      md5: 13e48eda311cce0452ab2aef1b7cef61.dir
+      size: 422374015
+      nfiles: 6
+    - path: venv-installed
+      md5: 79f04b91351d295dc7bdd75aab5b4170
+      size: 42
+    outs:
+    - path: reports/kauno-bonsai-fi.json
+      md5: 008328ba41d45f0f676c0bc251ceb40e
+      size: 95
+  eval@mllm:
+    cmd:
+    - venv/bin/annif eval kauno-mllm-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-mllm-fi.json
+      corpora/kirjasampo/kirjasampo-kauno-test.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
+      md5: 939cd63cada2e7b393412269e8880fe6
+      size: 1529683
+    - path: data/projects/kauno-mllm-fi
+      md5: cee358af74caa30a81ca65cb4a70301f.dir
+      size: 2663505
+      nfiles: 2
+    - path: venv-installed
+      md5: 79f04b91351d295dc7bdd75aab5b4170
+      size: 42
+    outs:
+    - path: reports/kauno-mllm-fi.json
+      md5: 8a665bcdaf3e9dd260b208756c6f1e9f
+      size: 95
+  eval@parabel:
+    cmd:
+    - venv/bin/annif eval kauno-parabel-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-parabel-fi.json
+      corpora/kirjasampo/kirjasampo-kauno-test.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
+      md5: 939cd63cada2e7b393412269e8880fe6
+      size: 1529683
+    - path: data/projects/kauno-parabel-fi
+      md5: 614536875cede357b4c46321fda6681f.dir
+      size: 325898643
+      nfiles: 6
+    - path: venv-installed
+      md5: 79f04b91351d295dc7bdd75aab5b4170
+      size: 42
+    outs:
+    - path: reports/kauno-parabel-fi.json
+      md5: d5f9c04b056dcc8389642d37ff1a6f6e
+      size: 95
+  eval@ensemble:
+    cmd:
+    - venv/bin/annif eval kauno-ensemble-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-ensemble-fi.json
+      corpora/kirjasampo/kirjasampo-kauno-test.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
+      md5: 939cd63cada2e7b393412269e8880fe6
+      size: 1529683
+    - path: data/projects/kauno-ensemble-fi
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: venv-installed
+      md5: 79f04b91351d295dc7bdd75aab5b4170
+      size: 42
+    outs:
+    - path: reports/kauno-ensemble-fi.json
+      md5: 8b450ca29ca3dc79b92b7ac5d13affb4
+      size: 94

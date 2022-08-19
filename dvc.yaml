@@ -42,3 +42,20 @@ stages:
       - data/vocabs/kauno
       outs:
       - data/projects/kauno-${item.backend}-fi
+  # Evaluate projects
+  eval:
+    foreach:
+      - mllm
+      - parabel
+      - bonsai
+      - ensemble
+    do:
+      cmd:
+      - venv/bin/annif eval kauno-${item}-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-${item}-fi.json corpora/kirjasampo/kirjasampo-kauno-test.tsv
+      deps:
+      - venv-installed
+      - corpora/kirjasampo/kirjasampo-kauno-test.tsv
+      - data/projects/kauno-${item}-fi
+      metrics:
+      - reports/kauno-${item}-fi.json:
+          cache: false

@@ -1,0 +1,4 @@
+[cache]
+    dir = /data/dvc-cache/FintoAI-data-KAUNO
+    shared = group
+    type = symlink

@@ -27,6 +27,6 @@ transform="limit(5000)"
 
 [kauno-ensemble-fi]
 language="fi"
-backend="omikuji"
+backend="ensemble"
 sources="kauno-mllm-fi,kauno-parabel-fi,kauno-bonsai-fi"
 vocab="kauno"

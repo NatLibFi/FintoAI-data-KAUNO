@@ -28,3 +28,57 @@ stages:
       md5: a11b4c697dec1f4179b121949e34007f.dir
       size: 40774070
       nfiles: 3
+  train-mllm:
+    cmd: venv/bin/annif train kauno-mllm-fi -j 8 -d 2000 corpora/kirjasampo/kirjasampo-kauno-train.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-train.tsv
+      md5: 86b8d5628195314f10a1bd330804b2df
+      size: 39927566
+    - path: data/vocabs/kauno
+      md5: a11b4c697dec1f4179b121949e34007f.dir
+      size: 40774070
+      nfiles: 3
+    - path: venv-installed
+      md5: 79f04b91351d295dc7bdd75aab5b4170
+      size: 42
+    outs:
+    - path: data/projects/kauno-mllm-fi
+      md5: cee358af74caa30a81ca65cb4a70301f.dir
+      size: 2663505
+      nfiles: 2
+  train-omikuji@parabel:
+    cmd: venv/bin/annif train kauno-parabel-fi -j 8 corpora/kirjasampo/kirjasampo-kauno-train.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-train.tsv
+      md5: 86b8d5628195314f10a1bd330804b2df
+      size: 39927566
+    - path: data/vocabs/kauno
+      md5: a11b4c697dec1f4179b121949e34007f.dir
+      size: 40774070
+      nfiles: 3
+    - path: venv-installed
+      md5: 79f04b91351d295dc7bdd75aab5b4170
+      size: 42
+    outs:
+    - path: data/projects/kauno-parabel-fi
+      md5: 614536875cede357b4c46321fda6681f.dir
+      size: 325898643
+      nfiles: 6
+  train-omikuji@bonsai:
+    cmd: venv/bin/annif train kauno-bonsai-fi -j 8 corpora/kirjasampo/kirjasampo-kauno-train.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-train.tsv
+      md5: 86b8d5628195314f10a1bd330804b2df
+      size: 39927566
+    - path: data/vocabs/kauno
+      md5: a11b4c697dec1f4179b121949e34007f.dir
+      size: 40774070
+      nfiles: 3
+    - path: venv-installed
+      md5: 79f04b91351d295dc7bdd75aab5b4170
+      size: 42
+    outs:
+    - path: data/projects/kauno-bonsai-fi
+      md5: 13e48eda311cce0452ab2aef1b7cef61.dir
+      size: 422374015
+      nfiles: 6

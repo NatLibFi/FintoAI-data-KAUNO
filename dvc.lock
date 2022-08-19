@@ -1,0 +1,16 @@
+schema: '2.0'
+stages:
+  install:
+    cmd:
+    - python3 -m venv venv
+    - . venv/bin/activate && pip install -U pip wheel setuptools && pip install -r
+      requirements.txt
+    - cp requirements.txt venv-installed
+    deps:
+    - path: requirements.txt
+      md5: 79f04b91351d295dc7bdd75aab5b4170
+      size: 42
+    outs:
+    - path: venv-installed
+      md5: 79f04b91351d295dc7bdd75aab5b4170
+      size: 42

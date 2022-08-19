@@ -14,3 +14,17 @@ stages:
     - path: venv-installed
       md5: 79f04b91351d295dc7bdd75aab5b4170
       size: 42
+  loadvoc:
+    cmd: venv/bin/annif loadvoc --force kauno-mllm-fi corpora/kauno-skos.ttl
+    deps:
+    - path: corpora/kauno-skos.ttl
+      md5: 09d7ce169c0b1d1115aefdff267b8e6b
+      size: 21347813
+    - path: venv-installed
+      md5: 79f04b91351d295dc7bdd75aab5b4170
+      size: 42
+    outs:
+    - path: data/vocabs/kauno
+      md5: a11b4c697dec1f4179b121949e34007f.dir
+      size: 40774070
+      nfiles: 3

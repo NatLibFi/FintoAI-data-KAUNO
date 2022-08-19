@@ -10,3 +10,11 @@ stages:
     outs:
     - venv-installed:
         cache: false
+  # Load KAUNO vocabulary
+  loadvoc:
+    cmd: venv/bin/annif loadvoc --force kauno-mllm-fi corpora/kauno-skos.ttl
+    deps:
+    - venv-installed
+    - corpora/kauno-skos.ttl
+    outs:
+    - data/vocabs/kauno

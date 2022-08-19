@@ -15,18 +15,18 @@ stages:
       md5: 79f04b91351d295dc7bdd75aab5b4170
       size: 42
   loadvoc:
-    cmd: venv/bin/annif loadvoc --force kauno-mllm-fi corpora/kauno-skos.ttl
+    cmd: venv/bin/annif loadvoc --force kauno-mllm-fi corpora/kauno-skos-reduced.ttl
     deps:
-    - path: corpora/kauno-skos.ttl
-      md5: 09d7ce169c0b1d1115aefdff267b8e6b
-      size: 21347813
+    - path: corpora/kauno-skos-reduced.ttl
+      md5: 52f7aeb7e056cbeb3fc87fb2389547e9
+      size: 17383751
     - path: venv-installed
       md5: 79f04b91351d295dc7bdd75aab5b4170
       size: 42
     outs:
     - path: data/vocabs/kauno
-      md5: a11b4c697dec1f4179b121949e34007f.dir
-      size: 40774070
+      md5: 86266af8817cec424a5b6cd37e5d3f4d.dir
+      size: 32994603
       nfiles: 3
   train-mllm:
     cmd: venv/bin/annif train kauno-mllm-fi -j 8 -d 2000 corpora/kirjasampo/kirjasampo-kauno-train.tsv
@@ -35,16 +35,16 @@ stages:
       md5: 6200fab3e9179186787cd49dbcaa587a
       size: 39921230
     - path: data/vocabs/kauno
-      md5: a11b4c697dec1f4179b121949e34007f.dir
-      size: 40774070
+      md5: 86266af8817cec424a5b6cd37e5d3f4d.dir
+      size: 32994603
       nfiles: 3
     - path: venv-installed
       md5: 79f04b91351d295dc7bdd75aab5b4170
       size: 42
     outs:
     - path: data/projects/kauno-mllm-fi
-      md5: 1ef7d6f9da540e3956706d42cfc274b9.dir
-      size: 2666668
+      md5: c8aebd2aa4c01ae90e34d075b011c9a9.dir
+      size: 2156056
       nfiles: 2
   train-omikuji@parabel:
     cmd: venv/bin/annif train kauno-parabel-fi -j 8 corpora/kirjasampo/kirjasampo-kauno-train.tsv
@@ -53,16 +53,16 @@ stages:
       md5: 6200fab3e9179186787cd49dbcaa587a
       size: 39921230
     - path: data/vocabs/kauno
-      md5: a11b4c697dec1f4179b121949e34007f.dir
-      size: 40774070
+      md5: 86266af8817cec424a5b6cd37e5d3f4d.dir
+      size: 32994603
       nfiles: 3
     - path: venv-installed
       md5: 79f04b91351d295dc7bdd75aab5b4170
       size: 42
     outs:
     - path: data/projects/kauno-parabel-fi
-      md5: b617ecfc8733c13bd5a831951cf60d06.dir
-      size: 327132981
+      md5: 8a1e20dc91ab8b3e658652439a93eb62.dir
+      size: 326359149
       nfiles: 6
   train-omikuji@bonsai:
     cmd: venv/bin/annif train kauno-bonsai-fi -j 8 corpora/kirjasampo/kirjasampo-kauno-train.tsv
@@ -71,16 +71,16 @@ stages:
       md5: 6200fab3e9179186787cd49dbcaa587a
       size: 39921230
     - path: data/vocabs/kauno
-      md5: a11b4c697dec1f4179b121949e34007f.dir
-      size: 40774070
+      md5: 86266af8817cec424a5b6cd37e5d3f4d.dir
+      size: 32994603
       nfiles: 3
     - path: venv-installed
       md5: 79f04b91351d295dc7bdd75aab5b4170
       size: 42
     outs:
     - path: data/projects/kauno-bonsai-fi
-      md5: ef6a51cfa950d03acc1621089161c65b.dir
-      size: 430377127
+      md5: 9ba203c60bf7476087a217bb3f3127d3.dir
+      size: 446514585
       nfiles: 6
   eval@bonsai:
     cmd:
@@ -91,16 +91,16 @@ stages:
       md5: 48611b60c8006116b9c8686456dcfbf6
       size: 1535757
     - path: data/projects/kauno-bonsai-fi
-      md5: ef6a51cfa950d03acc1621089161c65b.dir
-      size: 430377127
+      md5: 9ba203c60bf7476087a217bb3f3127d3.dir
+      size: 446514585
       nfiles: 6
     - path: venv-installed
       md5: 79f04b91351d295dc7bdd75aab5b4170
       size: 42
     outs:
     - path: reports/kauno-bonsai-fi.json
-      md5: eb24fb34a9ef2597fa30592220448afc
-      size: 94
+      md5: 4fe9de0b86ea6d77b3d74af816121444
+      size: 95
   eval@mllm:
     cmd:
     - venv/bin/annif eval kauno-mllm-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-mllm-fi.json
@@ -110,16 +110,16 @@ stages:
       md5: 48611b60c8006116b9c8686456dcfbf6
       size: 1535757
     - path: data/projects/kauno-mllm-fi
-      md5: 1ef7d6f9da540e3956706d42cfc274b9.dir
-      size: 2666668
+      md5: c8aebd2aa4c01ae90e34d075b011c9a9.dir
+      size: 2156056
       nfiles: 2
     - path: venv-installed
       md5: 79f04b91351d295dc7bdd75aab5b4170
       size: 42
     outs:
     - path: reports/kauno-mllm-fi.json
-      md5: 2cc7cbfb1fe27632ea868531bb93242a
-      size: 93
+      md5: e263755264c2f5303bd870845b3d0b4b
+      size: 95
   eval@parabel:
     cmd:
     - venv/bin/annif eval kauno-parabel-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-parabel-fi.json
@@ -129,16 +129,16 @@ stages:
       md5: 48611b60c8006116b9c8686456dcfbf6
       size: 1535757
     - path: data/projects/kauno-parabel-fi
-      md5: b617ecfc8733c13bd5a831951cf60d06.dir
-      size: 327132981
+      md5: 8a1e20dc91ab8b3e658652439a93eb62.dir
+      size: 326359149
       nfiles: 6
     - path: venv-installed
       md5: 79f04b91351d295dc7bdd75aab5b4170
       size: 42
     outs:
     - path: reports/kauno-parabel-fi.json
-      md5: 5ad309e431cd73937cd5a6c69ba8f64b
-      size: 95
+      md5: 283687fd1856a6e1a59a0279553d76d1
+      size: 93
   eval@ensemble:
     cmd:
     - venv/bin/annif eval kauno-ensemble-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-ensemble-fi.json
@@ -156,5 +156,5 @@ stages:
       size: 42
     outs:
     - path: reports/kauno-ensemble-fi.json
-      md5: 937144884444ec3c0a177b8798b287a0
-      size: 95
+      md5: 9e0cd20032f7a275295a6b4f57d52fd0
+      size: 94

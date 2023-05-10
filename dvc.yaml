@@ -12,7 +12,7 @@ stages:
         cache: false
   # Load KAUNO vocabulary
   loadvoc:
-    cmd: venv/bin/annif loadvoc --force kauno-mllm-fi corpora/kauno-skos-reduced.ttl
+    cmd: venv/bin/annif load-vocab --force kauno corpora/kauno-skos-reduced.ttl
     deps:
     - venv-installed
     - corpora/kauno-skos-reduced.ttl

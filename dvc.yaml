@@ -27,27 +27,44 @@ stages:
     - data/vocabs/kauno
     outs:
     - data/projects/kauno-mllm-fi
-  # Train Omikuji projects (Parabel and Bonsai)
-  train-omikuji:
+  # Train Omikuji projects (Parabel and Bonsai) using Kirjasampo data
+  train-omikuji-ks:
     foreach:
       parabel:
         backend: parabel
       bonsai:
         backend: bonsai
     do:
-      cmd: venv/bin/annif train kauno-${item.backend}-fi -j 8 corpora/kirjasampo/kirjasampo-kauno-train.tsv
+      cmd: venv/bin/annif train kauno-ks-${item.backend}-fi -j 8 corpora/kirjasampo/kirjasampo-kauno-train.tsv
       deps:
       - venv-installed
       - corpora/kirjasampo/kirjasampo-kauno-train.tsv
       - data/vocabs/kauno
       outs:
-      - data/projects/kauno-${item.backend}-fi
+      - data/projects/kauno-ks-${item.backend}-fi
+  # Train Omikuji projects (Parabel and Bonsai) using Finna data
+  train-omikuji-finna:
+    foreach:
+      parabel:
+        backend: parabel
+      bonsai:
+        backend: bonsai
+    do:
+      cmd: venv/bin/annif train kauno-finna-${item.backend}-fi -j 8 corpora/finna/kauno-finna-fin.tsv.gz
+      deps:
+      - venv-installed
+      - corpora/finna/kauno-finna-fin.tsv.gz
+      - data/vocabs/kauno
+      outs:
+      - data/projects/kauno-finna-${item.backend}-fi
   # Evaluate projects
   eval:
     foreach:
       - mllm
-      - parabel
-      - bonsai
+      - ks-parabel
+      - ks-bonsai
+      - finna-parabel
+      - finna-bonsai
       - ensemble
     do:
       cmd:

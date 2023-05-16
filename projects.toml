@@ -6,13 +6,6 @@ backend="mllm"
 analyzer="voikko(fi)"
 vocab="kauno"
 
-[kauno-ks-parabel-fi]
-language="fi"
-backend="omikuji"
-analyzer="voikko(fi)"
-vocab="kauno"
-transform="limit(5000)"
-
 [kauno-ks-bonsai-fi]
 language="fi"
 backend="omikuji"
@@ -23,13 +16,6 @@ cluster_k=100
 max_depth=3
 min_df=2
 ngram=2
-transform="limit(5000)"
-
-[kauno-finna-parabel-fi]
-language="fi"
-backend="omikuji"
-analyzer="voikko(fi)"
-vocab="kauno"
 transform="limit(5000)"
 
 [kauno-finna-bonsai-fi]
@@ -47,6 +33,6 @@ transform="limit(5000)"
 [kauno-ensemble-fi]
 language="fi"
 backend="ensemble"
-#sources="kauno-mllm-fi,kauno-ks-parabel-fi,kauno-ks-bonsai-fi,kauno-finna-parabel-fi,kauno-finna-bonsai-fi"
-sources="kauno-mllm-fi:0.1093,kauno-ks-parabel-fi:0.1853,kauno-ks-bonsai-fi:0.3472,kauno-finna-parabel-fi:0.0045,kauno-finna-bonsai-fi:0.3537"
+#sources="kauno-mllm-fi,kauno-ks-bonsai-fi,kauno-finna-bonsai-fi"
+sources="kauno-mllm-fi:0.1293,kauno-ks-bonsai-fi:0.5518,kauno-finna-bonsai-fi:0.3189"
 vocab="kauno"

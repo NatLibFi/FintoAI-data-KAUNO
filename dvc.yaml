@@ -45,6 +45,18 @@ stages:
     - data/vocabs/kauno
     outs:
     - data/projects/kauno-finna-bonsai-fi
+  # Train NN ensemble
+  train-ensemble:
+    cmd: venv/bin/annif train -j 8 kauno-ensemble-fi corpora/kirjasampo/kirjasampo-kauno-validate.tsv
+    deps:
+    - venv-installed
+    - corpora/kirjasampo/kirjasampo-kauno-validate.tsv
+    - data/vocabs/kauno
+    - data/projects/kauno-mllm-fi
+    - data/projects/kauno-ks-bonsai-fi
+    - data/projects/kauno-finna-bonsai-fi
+    outs:
+    - data/projects/kauno-ensemble-fi
   # Evaluate projects
   eval:
     foreach:

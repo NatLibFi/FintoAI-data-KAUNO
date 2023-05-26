@@ -1,12 +1,14 @@
 # KAUNO Finnish
 
 [kauno-mllm-fi]
+name="KAUNO MLLM Finnish"
 language="fi"
 backend="mllm"
 analyzer="voikko(fi)"
 vocab="kauno"
 
 [kauno-ks-bonsai-fi]
+name="KAUNO KS Omikuji Bonsai Finnish"
 language="fi"
 backend="omikuji"
 analyzer="voikko(fi)"
@@ -19,6 +21,7 @@ ngram=2
 transform="limit(5000)"
 
 [kauno-finna-bonsai-fi]
+name="KAUNO Finna Omikuji Bonsai Finnish"
 language="fi"
 backend="omikuji"
 analyzer="voikko(fi)"
@@ -31,6 +34,7 @@ ngram=2
 transform="limit(5000)"
 
 [kauno-ensemble-fi]
+name="KAUNO Ensemble Finnish"
 language="fi"
 backend="nn_ensemble"
 #sources="kauno-mllm-fi,kauno-ks-bonsai-fi,kauno-finna-bonsai-fi"

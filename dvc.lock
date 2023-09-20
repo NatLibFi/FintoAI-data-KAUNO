@@ -8,12 +8,14 @@ stages:
     - cp requirements.txt venv-installed
     deps:
     - path: requirements.txt
-      md5: b1b83339d2df42e93f3df0e83b1e85ab
-      size: 42
+      hash: md5
+      md5: f85f21b68735b126c2241fbff83fd0ef
+      size: 41
     outs:
     - path: venv-installed
-      md5: b1b83339d2df42e93f3df0e83b1e85ab
-      size: 42
+      hash: md5
+      md5: f85f21b68735b126c2241fbff83fd0ef
+      size: 41
   loadvoc:
     cmd: venv/bin/annif load-vocab --force kauno corpora/kauno-skos-reduced.ttl
     deps:

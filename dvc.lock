@@ -20,15 +20,18 @@ stages:
     cmd: venv/bin/annif load-vocab --force kauno corpora/kauno-skos-reduced.ttl
     deps:
     - path: corpora/kauno-skos-reduced.ttl
-      md5: 52f7aeb7e056cbeb3fc87fb2389547e9
-      size: 17383751
+      hash: md5
+      md5: 6ca997fbaed020b9bfa867c991b19739
+      size: 17501880
     - path: venv-installed
-      md5: b1b83339d2df42e93f3df0e83b1e85ab
-      size: 42
+      hash: md5
+      md5: f85f21b68735b126c2241fbff83fd0ef
+      size: 41
     outs:
     - path: data/vocabs/kauno
-      md5: 43f49eabb66648de35d01d57d196e196.dir
-      size: 33952771
+      hash: md5
+      md5: 8d23b787082ad96201ffb484ec6fb681.dir
+      size: 34076325
       nfiles: 3
   train-mllm:
     cmd: venv/bin/annif train kauno-mllm-fi -j 8 -d 2000 corpora/kirjasampo/kirjasampo-kauno-train.tsv

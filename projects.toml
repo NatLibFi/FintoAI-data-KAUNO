@@ -6,6 +6,7 @@ language="fi"
 backend="mllm"
 analyzer="voikko(fi)"
 vocab="kauno"
+access="hidden"
 
 [kauno-ks-bonsai-fi]
 name="KAUNO KS Omikuji Bonsai Finnish"
@@ -19,6 +20,7 @@ max_depth=3
 min_df=2
 ngram=2
 transform="limit(5000)"
+access="hidden"
 
 [kauno-finna-bonsai-fi]
 name="KAUNO Finna Omikuji Bonsai Finnish"
@@ -32,11 +34,11 @@ max_depth=3
 min_df=2
 ngram=2
 transform="limit(5000)"
+access="hidden"
 
-[kauno-ensemble-fi]
-name="KAUNO Ensemble Finnish"
+[kauno-fi]
+name="KAUNO suomi"
 language="fi"
 backend="nn_ensemble"
-#sources="kauno-mllm-fi,kauno-ks-bonsai-fi,kauno-finna-bonsai-fi"
 sources="kauno-mllm-fi:0.1293,kauno-ks-bonsai-fi:0.5518,kauno-finna-bonsai-fi:0.3189"
 vocab="kauno"

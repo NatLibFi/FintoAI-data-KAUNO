@@ -1,9 +1,11 @@
-md5: 8fd5a4215685f28d5952e76482e00312
+md5: 4d29a28b7156dd12c51a8626e9f882bf
 deps:
-- md5: 52f7aeb7e056cbeb3fc87fb2389547e9
-  size: 17383751
+- md5: 6ca997fbaed020b9bfa867c991b19739
+  size: 17501880
   path: /data/Annif-corpora-restricted/kirjasampo/kauno-skos-reduced.ttl
+  hash: md5
 outs:
-- md5: 52f7aeb7e056cbeb3fc87fb2389547e9
-  size: 17383751
+- md5: 6ca997fbaed020b9bfa867c991b19739
+  size: 17501880
   path: kauno-skos-reduced.ttl
+  hash: md5

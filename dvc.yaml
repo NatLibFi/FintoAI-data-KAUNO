@@ -46,8 +46,8 @@ stages:
     outs:
     - data/projects/kauno-finna-bonsai-fi
   # Train NN ensemble
-  train-ensemble:
-    cmd: venv/bin/annif train -j 8 kauno-ensemble-fi corpora/kirjasampo/kirjasampo-kauno-validate.tsv
+  train-nn-ensemble:
+    cmd: venv/bin/annif train -j 8 kauno-fi corpora/kirjasampo/kirjasampo-kauno-validate.tsv
     deps:
     - venv-installed
     - corpora/kirjasampo/kirjasampo-kauno-validate.tsv
@@ -56,21 +56,21 @@ stages:
     - data/projects/kauno-ks-bonsai-fi
     - data/projects/kauno-finna-bonsai-fi
     outs:
-    - data/projects/kauno-ensemble-fi
+    - data/projects/kauno-fi
   # Evaluate projects
   eval:
     foreach:
-      - mllm
-      - ks-bonsai
-      - finna-bonsai
-      - ensemble
+      - mllm-fi
+      - ks-bonsai-fi
+      - finna-bonsai-fi
+      - fi
     do:
       cmd:
-      - venv/bin/annif eval kauno-${item}-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-${item}-fi.json corpora/kirjasampo/kirjasampo-kauno-test.tsv
+      - venv/bin/annif eval kauno-${item} -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-${item}.json corpora/kirjasampo/kirjasampo-kauno-test.tsv
       deps:
       - venv-installed
       - corpora/kirjasampo/kirjasampo-kauno-test.tsv
-      - data/projects/kauno-${item}-fi
+      - data/projects/kauno-${item}
       metrics:
-      - reports/kauno-${item}-fi.json:
+      - reports/kauno-${item}.json:
           cache: false

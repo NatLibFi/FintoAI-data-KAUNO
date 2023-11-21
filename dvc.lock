@@ -411,3 +411,132 @@ stages:
       md5: 3c5b9e385b3d59c658f823a92dfd34f6.dir
       size: 1223621179
       nfiles: 3
+  train-nn-ensemble:
+    cmd: venv/bin/annif train -j 8 kauno-fi corpora/kirjasampo/kirjasampo-kauno-validate.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-validate.tsv
+      hash: md5
+      md5: 6dbd774820c16dbd440da71151e36079
+      size: 2455221
+    - path: data/projects/kauno-finna-bonsai-fi
+      hash: md5
+      md5: eb1d5d6d196c0237832da37d53680b78.dir
+      size: 542003428
+      nfiles: 6
+    - path: data/projects/kauno-ks-bonsai-fi
+      hash: md5
+      md5: 7f3dae80e066dae4428a86bba7eea413.dir
+      size: 745367632
+      nfiles: 6
+    - path: data/projects/kauno-mllm-fi
+      hash: md5
+      md5: 23c57a221af59d0d2541a7df9e37ad7c.dir
+      size: 2261733
+      nfiles: 2
+    - path: data/vocabs/kauno
+      hash: md5
+      md5: 8d23b787082ad96201ffb484ec6fb681.dir
+      size: 34076325
+      nfiles: 3
+    - path: venv-installed
+      hash: md5
+      md5: f85f21b68735b126c2241fbff83fd0ef
+      size: 41
+    outs:
+    - path: data/projects/kauno-fi
+      hash: md5
+      md5: ce989b5df6c6771b0e60aefb8a7d4ec9.dir
+      size: 1223621179
+      nfiles: 3
+  eval@mllm-fi:
+    cmd:
+    - venv/bin/annif eval kauno-mllm-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-mllm-fi.json
+      corpora/kirjasampo/kirjasampo-kauno-test.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
+      hash: md5
+      md5: 2a491f3d2b35df602a3730db99f7605c
+      size: 1502390
+    - path: data/projects/kauno-mllm-fi
+      hash: md5
+      md5: 23c57a221af59d0d2541a7df9e37ad7c.dir
+      size: 2261733
+      nfiles: 2
+    - path: venv-installed
+      hash: md5
+      md5: f85f21b68735b126c2241fbff83fd0ef
+      size: 41
+    outs:
+    - path: reports/kauno-mllm-fi.json
+      hash: md5
+      md5: 9b94207439de0dee3c8efb58eaf23bdb
+      size: 95
+  eval@ks-bonsai-fi:
+    cmd:
+    - venv/bin/annif eval kauno-ks-bonsai-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-ks-bonsai-fi.json
+      corpora/kirjasampo/kirjasampo-kauno-test.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
+      hash: md5
+      md5: 2a491f3d2b35df602a3730db99f7605c
+      size: 1502390
+    - path: data/projects/kauno-ks-bonsai-fi
+      hash: md5
+      md5: 7f3dae80e066dae4428a86bba7eea413.dir
+      size: 745367632
+      nfiles: 6
+    - path: venv-installed
+      hash: md5
+      md5: f85f21b68735b126c2241fbff83fd0ef
+      size: 41
+    outs:
+    - path: reports/kauno-ks-bonsai-fi.json
+      hash: md5
+      md5: 9c16b8188723d2a92c8a4117e841fa83
+      size: 94
+  eval@finna-bonsai-fi:
+    cmd:
+    - venv/bin/annif eval kauno-finna-bonsai-fi -j 8 -m F1@5 -m NDCG --metrics-file
+      reports/kauno-finna-bonsai-fi.json corpora/kirjasampo/kirjasampo-kauno-test.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
+      hash: md5
+      md5: 2a491f3d2b35df602a3730db99f7605c
+      size: 1502390
+    - path: data/projects/kauno-finna-bonsai-fi
+      hash: md5
+      md5: eb1d5d6d196c0237832da37d53680b78.dir
+      size: 542003428
+      nfiles: 6
+    - path: venv-installed
+      hash: md5
+      md5: f85f21b68735b126c2241fbff83fd0ef
+      size: 41
+    outs:
+    - path: reports/kauno-finna-bonsai-fi.json
+      hash: md5
+      md5: fe5bc33b1f952c4d330ee1a12613fd9c
+      size: 94
+  eval@fi:
+    cmd:
+    - venv/bin/annif eval kauno-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-fi.json
+      corpora/kirjasampo/kirjasampo-kauno-test.tsv
+    deps:
+    - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
+      hash: md5
+      md5: 2a491f3d2b35df602a3730db99f7605c
+      size: 1502390
+    - path: data/projects/kauno-fi
+      hash: md5
+      md5: ce989b5df6c6771b0e60aefb8a7d4ec9.dir
+      size: 1223621179
+      nfiles: 3
+    - path: venv-installed
+      hash: md5
+      md5: f85f21b68735b126c2241fbff83fd0ef
+      size: 41
+    outs:
+    - path: reports/kauno-fi.json
+      hash: md5
+      md5: 500d93c3d47823dbef945b2efa8899e4
+      size: 93

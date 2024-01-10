@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sync to Hugging Face Hub
-        uses: juhoinkinen/huggingface-sync-action@v0.0.9
+        uses: juhoinkinen/huggingface-sync-action@v0.0.10
         with:
           # The Hugging Face repo id you want to sync to. (ex. 'username/reponame')
           # A repo with this name will be created if it doesn't exist. Required.
-          huggingface_repo_id: 'juhoinkinen/FintoAI-data-KAUNO-2'
+          huggingface_repo_id: 'juhoinkinen/FintoAI-data-KAUNO-3'
         
           # Hugging Face token with write access. Required.
           # Here, we provide a token that we called `HF_TOKEN` when we added the secret to our GitHub repo.
@@ -22,7 +22,7 @@ jobs:
         
           # The type of repo you are syncing to: model, dataset, or space.
           # Defaults to space.
-          repo_type: 'dataset'
+          repo_type: 'model'
           
           # If true and the Hugging Face repo doesn't already exist, it will be created
           # as a private repo.

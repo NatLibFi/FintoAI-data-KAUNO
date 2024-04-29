@@ -9,51 +9,51 @@ stages:
     deps:
     - path: requirements.txt
       hash: md5
-      md5: f85f21b68735b126c2241fbff83fd0ef
+      md5: 02f98d5279ce26ea34a36efe36c168c5
       size: 41
     outs:
     - path: venv-installed
       hash: md5
-      md5: f85f21b68735b126c2241fbff83fd0ef
+      md5: 02f98d5279ce26ea34a36efe36c168c5
       size: 41
   loadvoc:
     cmd: venv/bin/annif load-vocab --force kauno corpora/kauno-skos-reduced.ttl
     deps:
     - path: corpora/kauno-skos-reduced.ttl
       hash: md5
-      md5: 6ca997fbaed020b9bfa867c991b19739
-      size: 17501880
+      md5: 52f7aeb7e056cbeb3fc87fb2389547e9
+      size: 17383751
     - path: venv-installed
       hash: md5
-      md5: f85f21b68735b126c2241fbff83fd0ef
+      md5: 02f98d5279ce26ea34a36efe36c168c5
       size: 41
     outs:
     - path: data/vocabs/kauno
       hash: md5
-      md5: 8d23b787082ad96201ffb484ec6fb681.dir
-      size: 34076325
+      md5: 97eb910d9f41f1c298e943f6a96797c6.dir
+      size: 33953375
       nfiles: 3
   train-mllm:
     cmd: venv/bin/annif train kauno-mllm-fi -j 8 -d 2000 corpora/kirjasampo/kirjasampo-kauno-train.tsv
     deps:
     - path: corpora/kirjasampo/kirjasampo-kauno-train.tsv
       hash: md5
-      md5: 77c01592d2c7c34f04bbee75b6584ec8
-      size: 58959362
+      md5: 6200fab3e9179186787cd49dbcaa587a
+      size: 39921230
     - path: data/vocabs/kauno
       hash: md5
-      md5: 8d23b787082ad96201ffb484ec6fb681.dir
-      size: 34076325
+      md5: 97eb910d9f41f1c298e943f6a96797c6.dir
+      size: 33953375
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: f85f21b68735b126c2241fbff83fd0ef
+      md5: 02f98d5279ce26ea34a36efe36c168c5
       size: 41
     outs:
     - path: data/projects/kauno-mllm-fi
       hash: md5
-      md5: 23c57a221af59d0d2541a7df9e37ad7c.dir
-      size: 2261733
+      md5: 877a3c41b88e1c48b62b24e8fbf6ab43.dir
+      size: 2209629
       nfiles: 2
   train-omikuji@parabel:
     cmd: venv/bin/annif train kauno-parabel-fi -j 8 corpora/kirjasampo/kirjasampo-kauno-train.tsv
@@ -336,22 +336,22 @@ stages:
     deps:
     - path: corpora/kirjasampo/kirjasampo-kauno-train.tsv
       hash: md5
-      md5: 77c01592d2c7c34f04bbee75b6584ec8
-      size: 58959362
+      md5: 6200fab3e9179186787cd49dbcaa587a
+      size: 39921230
     - path: data/vocabs/kauno
       hash: md5
-      md5: 8d23b787082ad96201ffb484ec6fb681.dir
-      size: 34076325
+      md5: 97eb910d9f41f1c298e943f6a96797c6.dir
+      size: 33953375
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: f85f21b68735b126c2241fbff83fd0ef
+      md5: 02f98d5279ce26ea34a36efe36c168c5
       size: 41
     outs:
     - path: data/projects/kauno-ks-bonsai-fi
       hash: md5
-      md5: 7f3dae80e066dae4428a86bba7eea413.dir
-      size: 745367632
+      md5: 0e8ba875e1fcff25a12e089b8f5d7229.dir
+      size: 425784427
       nfiles: 6
   train-omikuji-finna:
     cmd: venv/bin/annif train kauno-finna-bonsai-fi -j 8 corpora/finna/kauno-finna-fin.tsv.gz
@@ -361,18 +361,18 @@ stages:
       size: 63666506
     - path: data/vocabs/kauno
       hash: md5
-      md5: 8d23b787082ad96201ffb484ec6fb681.dir
-      size: 34076325
+      md5: 97eb910d9f41f1c298e943f6a96797c6.dir
+      size: 33953375
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: f85f21b68735b126c2241fbff83fd0ef
+      md5: 02f98d5279ce26ea34a36efe36c168c5
       size: 41
     outs:
     - path: data/projects/kauno-finna-bonsai-fi
       hash: md5
-      md5: eb1d5d6d196c0237832da37d53680b78.dir
-      size: 542003428
+      md5: 4efa474fdf4fa73c0ea4aa82515b6982.dir
+      size: 546281198
       nfiles: 6
   train-ensemble:
     cmd: venv/bin/annif train -j 8 kauno-ensemble-fi corpora/kirjasampo/kirjasampo-kauno-validate.tsv
@@ -416,37 +416,37 @@ stages:
     deps:
     - path: corpora/kirjasampo/kirjasampo-kauno-validate.tsv
       hash: md5
-      md5: 6dbd774820c16dbd440da71151e36079
-      size: 2455221
+      md5: 4c75d27b7c39a31af6f4484979652d8d
+      size: 1613807
     - path: data/projects/kauno-finna-bonsai-fi
       hash: md5
-      md5: eb1d5d6d196c0237832da37d53680b78.dir
-      size: 542003428
+      md5: 4efa474fdf4fa73c0ea4aa82515b6982.dir
+      size: 546281198
       nfiles: 6
     - path: data/projects/kauno-ks-bonsai-fi
       hash: md5
-      md5: 7f3dae80e066dae4428a86bba7eea413.dir
-      size: 745367632
+      md5: 0e8ba875e1fcff25a12e089b8f5d7229.dir
+      size: 425784427
       nfiles: 6
     - path: data/projects/kauno-mllm-fi
       hash: md5
-      md5: 23c57a221af59d0d2541a7df9e37ad7c.dir
-      size: 2261733
+      md5: 877a3c41b88e1c48b62b24e8fbf6ab43.dir
+      size: 2209629
       nfiles: 2
     - path: data/vocabs/kauno
       hash: md5
-      md5: 8d23b787082ad96201ffb484ec6fb681.dir
-      size: 34076325
+      md5: 97eb910d9f41f1c298e943f6a96797c6.dir
+      size: 33953375
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: f85f21b68735b126c2241fbff83fd0ef
+      md5: 02f98d5279ce26ea34a36efe36c168c5
       size: 41
     outs:
     - path: data/projects/kauno-fi
       hash: md5
-      md5: ce989b5df6c6771b0e60aefb8a7d4ec9.dir
-      size: 1223621179
+      md5: 926bcb8ba950c4a8f8dab774a39818b9.dir
+      size: 1223683655
       nfiles: 3
   eval@mllm-fi:
     cmd:
@@ -455,22 +455,22 @@ stages:
     deps:
     - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
       hash: md5
-      md5: 2a491f3d2b35df602a3730db99f7605c
-      size: 1502390
+      md5: 48611b60c8006116b9c8686456dcfbf6
+      size: 1535757
     - path: data/projects/kauno-mllm-fi
       hash: md5
-      md5: 23c57a221af59d0d2541a7df9e37ad7c.dir
-      size: 2261733
+      md5: 877a3c41b88e1c48b62b24e8fbf6ab43.dir
+      size: 2209629
       nfiles: 2
     - path: venv-installed
       hash: md5
-      md5: f85f21b68735b126c2241fbff83fd0ef
+      md5: 02f98d5279ce26ea34a36efe36c168c5
       size: 41
     outs:
     - path: reports/kauno-mllm-fi.json
       hash: md5
-      md5: 9b94207439de0dee3c8efb58eaf23bdb
-      size: 95
+      md5: 574ca15d1c509e0a557c50761f9734b7
+      size: 94
   eval@ks-bonsai-fi:
     cmd:
     - venv/bin/annif eval kauno-ks-bonsai-fi -j 8 -m F1@5 -m NDCG --metrics-file reports/kauno-ks-bonsai-fi.json
@@ -478,22 +478,22 @@ stages:
     deps:
     - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
       hash: md5
-      md5: 2a491f3d2b35df602a3730db99f7605c
-      size: 1502390
+      md5: 48611b60c8006116b9c8686456dcfbf6
+      size: 1535757
     - path: data/projects/kauno-ks-bonsai-fi
       hash: md5
-      md5: 7f3dae80e066dae4428a86bba7eea413.dir
-      size: 745367632
+      md5: 0e8ba875e1fcff25a12e089b8f5d7229.dir
+      size: 425784427
       nfiles: 6
     - path: venv-installed
       hash: md5
-      md5: f85f21b68735b126c2241fbff83fd0ef
+      md5: 02f98d5279ce26ea34a36efe36c168c5
       size: 41
     outs:
     - path: reports/kauno-ks-bonsai-fi.json
       hash: md5
-      md5: 9c16b8188723d2a92c8a4117e841fa83
-      size: 94
+      md5: 2b9f99e62825080ffff7abdae0af7cec
+      size: 93
   eval@finna-bonsai-fi:
     cmd:
     - venv/bin/annif eval kauno-finna-bonsai-fi -j 8 -m F1@5 -m NDCG --metrics-file
@@ -501,21 +501,21 @@ stages:
     deps:
     - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
       hash: md5
-      md5: 2a491f3d2b35df602a3730db99f7605c
-      size: 1502390
+      md5: 48611b60c8006116b9c8686456dcfbf6
+      size: 1535757
     - path: data/projects/kauno-finna-bonsai-fi
       hash: md5
-      md5: eb1d5d6d196c0237832da37d53680b78.dir
-      size: 542003428
+      md5: 4efa474fdf4fa73c0ea4aa82515b6982.dir
+      size: 546281198
       nfiles: 6
     - path: venv-installed
       hash: md5
-      md5: f85f21b68735b126c2241fbff83fd0ef
+      md5: 02f98d5279ce26ea34a36efe36c168c5
       size: 41
     outs:
     - path: reports/kauno-finna-bonsai-fi.json
       hash: md5
-      md5: fe5bc33b1f952c4d330ee1a12613fd9c
+      md5: 92a8e14bcbc343e8e82c9ed98d0bee01
       size: 94
   eval@fi:
     cmd:
@@ -524,19 +524,19 @@ stages:
     deps:
     - path: corpora/kirjasampo/kirjasampo-kauno-test.tsv
       hash: md5
-      md5: 2a491f3d2b35df602a3730db99f7605c
-      size: 1502390
+      md5: 48611b60c8006116b9c8686456dcfbf6
+      size: 1535757
     - path: data/projects/kauno-fi
       hash: md5
-      md5: ce989b5df6c6771b0e60aefb8a7d4ec9.dir
-      size: 1223621179
+      md5: 926bcb8ba950c4a8f8dab774a39818b9.dir
+      size: 1223683655
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: f85f21b68735b126c2241fbff83fd0ef
+      md5: 02f98d5279ce26ea34a36efe36c168c5
       size: 41
     outs:
     - path: reports/kauno-fi.json
       hash: md5
-      md5: 500d93c3d47823dbef945b2efa8899e4
+      md5: 892c4b63a0b2dc6147a6fbad5b8c69a6
       size: 93

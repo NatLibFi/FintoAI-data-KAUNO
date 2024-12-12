@@ -12,10 +12,10 @@ stages:
         cache: false
   # Load KAUNO vocabulary
   loadvoc:
-    cmd: venv/bin/annif load-vocab --force kauno corpora/kauno-skos-reduced.ttl
+    cmd: venv/bin/annif load-vocab --force kauno corpora/kauno-2024-12.ttl
     deps:
     - venv-installed
-    - corpora/kauno-skos-reduced.ttl
+    - corpora/kauno-2024-12.ttl
     outs:
     - data/vocabs/kauno
   # Train MLLM project

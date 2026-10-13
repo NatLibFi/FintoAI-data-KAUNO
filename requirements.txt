@@ -1,1 +1,1 @@
-annif[fasttext,omikuji,nn,voikko]==1.0.*
+annif[omikuji,nn,torch-cpu,voikko] @ git+https://github.com/NatLibFi/Annif@main  # Currently at 1.5.0dev0

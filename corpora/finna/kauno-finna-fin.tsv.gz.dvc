@@ -1,10 +1,11 @@
-md5: dae92ef1d2bed2a3c21e7631b6cdcb5e
+md5: 83e02d44258db1ac3a76e3d797ededf4
 deps:
-- md5: ae570f73cbc72bd952efebd67575cda4
-  size: 63666506
+- md5: 9b19a0cca5fcb1cc1c4104d736474b8a
+  size: 70929428
   path: /data/Annif-corpora/training/kauno-finna-fin.tsv.gz
   hash: md5
 outs:
-- md5: ae570f73cbc72bd952efebd67575cda4
-  size: 63666506
+- md5: 9b19a0cca5fcb1cc1c4104d736474b8a
+  size: 70929428
   path: kauno-finna-fin.tsv.gz
+  hash: md5

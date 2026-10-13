@@ -1,11 +1,11 @@
-md5: cca190c38bb6b6fbdeb2c4ca5c85abd9
+md5: 9a0a9acc459e77df8b0068da9a5fbba1
 deps:
-- md5: 2a491f3d2b35df602a3730db99f7605c
-  size: 1502390
+- md5: 87a34bd2115cd444f6e020d488a0dd31
+  size: 2109543
   path: /data/Annif-corpora-restricted/kirjasampo/kirjasampo-kauno-test.tsv
   hash: md5
 outs:
-- md5: 2a491f3d2b35df602a3730db99f7605c
-  size: 1502390
+- md5: 87a34bd2115cd444f6e020d488a0dd31
+  size: 2109543
   path: kirjasampo-kauno-test.tsv
   hash: md5
